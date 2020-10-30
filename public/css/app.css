@@ -1,7 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300&display=swap');
-
-body {
+@import url(https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap);@import url(https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300&display=swap);body {
     font-family: 'Source Code Pro', monospace;
 }
 
