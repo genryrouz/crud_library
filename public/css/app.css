@@ -1,6 +1,19 @@
 @import url(https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap);@import url(https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300&display=swap);body {
     font-family: 'Source Code Pro', monospace;
+    
 }
+html {
+    overflow: scroll;
+    overflow-x: hidden;
+     }
+    ::-webkit-scrollbar {
+    width: 0px;  /* remove scrollbar space */
+    background: transparent;  /* optional: just make scrollbar invisible */
+      }
+    /* optional: show position indicator in red */
+    ::-webkit-scrollbar-thumb {
+    background: #FF0000;
+     }
 
 footer {
     width: 90%;

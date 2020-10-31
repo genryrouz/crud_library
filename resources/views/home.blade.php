@@ -12,7 +12,7 @@
           </div>
 
           <div class="col">
-              <img src="https://icon-icons.com/icons2/2474/PNG/128/education_books_library_icon_149685.png" alt="">
+              <img src="/img/main_book.png" alt="">
           </div>
       </div>
 

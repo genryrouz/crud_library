@@ -5,5 +5,5 @@
     <a class="p-2 text-dark" href="/authors">Авторы</a>
     <a class="p-2 text-dark" href="/books">Книги</a>
   </nav>
-  <a class="btn btn-outline-primary" href="/adminpanel">Панель администратора</a>
+  <a class="btn btn-outline-primary" href="/adminpanel/home">Панель администратора</a>
 </div>

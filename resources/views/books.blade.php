@@ -22,7 +22,7 @@
                     <div class="col-5">
                        <div class="row">
                            <div class="col">
-                            <img class="rounded mx-auto d-block" src="https://icon-icons.com/icons2/317/PNG/128/book-bookmark-icon_34486.png" alt="">
+                            <img class="rounded mx-auto d-block" src="/img/page_book.png" alt="">
                            </div>
                        </div>
 

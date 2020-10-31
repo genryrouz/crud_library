@@ -21,7 +21,7 @@
                     <div class="col-5">
                        <div class="row">
                            <div class="col">
-                            <img class="rounded mx-auto d-block" src="https://icon-icons.com/icons2/582/PNG/128/businness-man_icon-icons.com_55047.png" alt="">
+                            <img class="rounded mx-auto d-block" src="/img/page_authors.png" alt="">
                            </div>
                        </div>
 

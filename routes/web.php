@@ -26,6 +26,26 @@ Route::get('/books', function () {
 });
 
 
-Route::get('/adminpanel', function () {
-    return view('adminpanel');
+Route::get('/adminpanel/home', function () {
+    return view('admin_home');
+});
+
+Route::get('/adminpanel/books', function () {
+    return view('admin_books');
+});
+
+Route::get('/adminpanel/authors', function () {
+    return view('admin_authors');
+});
+
+Route::get('/adminpanel/authors/addauthor', function () {
+    return view('add_authors');
+});
+
+Route::get('/adminpanel/books/addbook', function () {
+    return view('add_books');
+});
+
+Route::get('/adminpanel/authors/showbooklist', function () {
+    return view('show_books');
 });
