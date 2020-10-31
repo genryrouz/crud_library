@@ -8,7 +8,7 @@
     <a class="nav-link text-center" href="{{ route('admin-books') }}">Раздел "Книги"</a>
 </li>
 <li class="nav-item shadow-sm nav-menu mt-2">
-    <a class="nav-link text-center" href="{{ route('admin-authors') }}">Раздел "Авторы"</a>
+    <a class="nav-link text-center" href="{{ route('admin-author-data') }}">Раздел "Авторы"</a>
 </li>
 
 @endsection

@@ -33,18 +33,21 @@ Route::get('/adminpanel/books', function () {
     return view('admin_books');
 })->name('admin-books');
 
-Route::get('/adminpanel/authors', function () {
-    return view('admin_authors');
-})->name('admin-authors');
 
 Route::get('/adminpanel/authors/addauthor', function () {
     return view('add_authors');
 })->name('admin-authors-input');
 
-Route::get('/adminpanel/books/addbook', function () {
-    return view('add_books');
-})->name('admin-books-input');
+
 
 Route::get('/adminpanel/authors/showbooklist', function () {
     return view('show_books');
 })->name('admin-books-showlist');
+
+Route::post('/adminpanel/books/addbook/submit', 'BooksController@submit')->name('admin-book-submit'); 
+
+Route::get('/adminpanel/authors/all', 'AuthorController@AllAuthors')->name('admin-author-data'); 
+
+Route::get('/adminpanel/books/addbook', 'AuthorController@AuthorList')->name('admin-books-input'); 
+
+Route::post('/adminpanel/books/authors/submit', 'AuthorController@submit')->name('admin-author-submit'); 

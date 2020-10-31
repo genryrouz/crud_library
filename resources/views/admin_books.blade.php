@@ -2,13 +2,13 @@
 @section('title-page')Раздел книг@endsection
 @section('shadow_active')
 <li class="nav-item shadow-sm nav-menu">
-    <a class="nav-link text-center" href="/adminpanel/home">Главная</a>
+    <a class="nav-link text-center" href="{{ route('admin-panel') }}">Главная</a>
 </li>
 <li class="nav-item shadow nav-menu mt-2">
-    <a class="nav-link text-center" href="/adminpanel/books">Раздел "Книги"</a>
+    <a class="nav-link text-center" href="{{ route('admin-books') }}">Раздел "Книги"</a>
 </li>
 <li class="nav-item shadow-sm nav-menu mt-2">
-    <a class="nav-link text-center" href="/adminpanel/authors">Раздел "Авторы"</a>
+    <a class="nav-link text-center" href="{{ route('admin-author-data') }}">Раздел "Авторы"</a>
 </li>
 
 @endsection
@@ -22,7 +22,7 @@
 
 <div class="row mb-5">
     <div class="col text-center">
-        <a href = "/adminpanel/books/addbook"><button type="button" class="btn btn-outline-success"><i class="em em-bookmark_tabs" aria-role="presentation" aria-label="BOOKMARK TABS"></i> добавить новую книгу</button></a>
+        <a href = "{{ route('admin-books-input') }}"><button type="button" class="btn btn-outline-success"><i class="em em-bookmark_tabs" aria-role="presentation" aria-label="BOOKMARK TABS"></i> добавить новую книгу</button></a>
     </div>
 </div>
 

@@ -8,7 +8,7 @@
     <a class="nav-link text-center" href="{{ route('admin-books') }}">Раздел "Книги"</a>
 </li>
 <li class="nav-item shadow nav-menu mt-2">
-    <a class="nav-link text-center" href="{{ route('admin-authors') }}">Раздел "Авторы"</a>
+    <a class="nav-link text-center" href="{{ route('admin-author-data') }}">Раздел "Авторы"</a>
 </li>
 
 @endsection
@@ -20,34 +20,37 @@
         </div>
 </div>
 
+@include('inc.messages')
+
 <div class="row">
     <div class="col">
-        <form action = "/adminpanel/books/addbook/submit">
+        <form action = "{{ route('admin-author-submit') }}" method = "post">
+            @csrf
             <div class="form-group">
                 <div class="input-group input-group-sm mb-3">
                 <label for="surname">Фамилия</label>
-                    <input type="text" id = "surname" class="form-control ml-2" placeholder = "Введите фамилию" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                    <input type="text" name = "surname" id = "surname" class="form-control ml-2" placeholder = "Введите фамилию" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
                 </div>
 
                 <div class="input-group input-group-sm mb-3">
                 <label for="author_name">Имя</label>
-                    <input type="text" id = "author_name" class="form-control ml-2" placeholder = "Введите имя" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                    <input type="text" name = "author_name" id = "author_name" class="form-control ml-2" placeholder = "Введите имя" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
                 </div>
 
                 <div class="input-group input-group-sm mb-3">
                 <label for="pages_count">Email</label>
-                    <input type="number" id = "pages_count" class="form-control ml-2" placeholder = "Введите email" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                    <input type="text" name = "email" id = "email" class="form-control ml-2" placeholder = "Введите email" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
                 </div>
 
                 
 
                 <div class="row">
                     <div class="col text-center">
-                        <a href="/adminpanel/books"><button type="button" class="btn btn-outline-success btn-sm">Добавить</button></a>
+                        <a href="/adminpanel/books"><button type="submit" class="btn btn-outline-success btn-sm">Добавить</button></a>
                     </div>
 
                     <div class="col text-center">
-                        <a href="/adminpanel/authors"><button type="button" class="btn btn-outline-secondary btn-sm">Вернуться назад</button></a>
+                        <a href="{{ route('admin-author-data') }}"><button type="button" class="btn btn-outline-secondary btn-sm">Вернуться назад</button></a>
                     </div>
                 </div>
 
