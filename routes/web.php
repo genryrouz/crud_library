@@ -29,25 +29,55 @@ Route::get('/adminpanel/home', function () {
     return view('admin_home');
 })->name('admin-panel');
 
-Route::get('/adminpanel/books', function () {
-    return view('admin_books');
-})->name('admin-books');
-
-
 Route::get('/adminpanel/authors/addauthor', function () {
     return view('add_authors');
 })->name('admin-authors-input');
 
 
+Route::post('/adminpanel/books/addbook/submit', 
+'BooksController@submit')
+->name('admin-book-submit'); 
 
-Route::get('/adminpanel/authors/showbooklist', function () {
-    return view('show_books');
-})->name('admin-books-showlist');
+Route::get('/adminpanel/books', 
+'BooksController@AllBooks')
+->name('admin-books'); 
 
-Route::post('/adminpanel/books/addbook/submit', 'BooksController@submit')->name('admin-book-submit'); 
+Route::get('/adminpanel/books/{id}/delete',
+ 'BooksController@deleteBook')
+ ->name('books-delete'); 
 
-Route::get('/adminpanel/authors/all', 'AuthorController@AllAuthors')->name('admin-author-data'); 
+Route::get('/adminpanel/authors/{id}/booklist',
+ 'AuthorController@showBooks')
+ ->name('admin-books-showlist'); 
 
-Route::get('/adminpanel/books/addbook', 'AuthorController@AuthorList')->name('admin-books-input'); 
+Route::get('/adminpanel/books/{id}/update',
+ 'BooksController@updateBook')
+ ->name('books-update');
 
-Route::post('/adminpanel/books/authors/submit', 'AuthorController@submit')->name('admin-author-submit'); 
+ Route::get('/adminpanel/authors/{id}/update',
+ 'AuthorController@updateAuthor')
+ ->name('author-update');
+
+ Route::get('/adminpanel/authors/{id}/delete',
+ 'AuthorController@deleteAuthor')
+ ->name('author-delete'); 
+
+ Route::post('/adminpanel/authors/{id}/update',
+ 'AuthorController@updateAuthorSubmit')
+ ->name('author-update-submit');
+
+Route::post('/adminpanel/books/{id}/update', 
+'BooksController@updateBookSubmit')
+->name('books-update-submit');
+
+Route::get('/adminpanel/authors/all',
+ 'AuthorController@AllAuthors')
+ ->name('admin-author-data'); 
+
+Route::get('/adminpanel/books/addbook', 
+'AuthorController@AuthorList')
+->name('admin-books-input'); 
+
+Route::post('/adminpanel/books/authors/submit',
+ 'AuthorController@submit')
+ ->name('admin-author-submit'); 

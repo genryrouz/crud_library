@@ -25,7 +25,6 @@ class BookRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'id_author' => 'required',
             'pages_count' => 'required',
             'charter_count' => 'required',
             'publish_date' => 'required',
@@ -38,7 +37,6 @@ class BookRequest extends FormRequest
     public function messages() {
         return [
             'name.required' => 'Поле "Наименование книги" является обязательным.',
-            'id_author.required' => 'Поле "Автор" является обязательным.',
             'pages_count.required' => 'Поле "Количество страниц" является обязательным.',
             'charter_count.required' => 'Поле "Количество глав" является обязательным.',
             'publish_date.required' => 'Поле "Год издания" является обязательным.',

@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Books extends Model
 {
     use HasFactory;
+
+    public $table = 'books';
+
+    public function authors()
+    {
+      return $this->belongsTo('App\Author');
+    }
 }

@@ -29,6 +29,7 @@
 </div>
 
 @include('inc.messages')
+
 <div class="row row-cols-1 mt-5">
 @foreach($data as $el)
 
@@ -46,19 +47,19 @@
 
                     <div class="row mt-2">
                         <div class="col text-center">
-                            <a href="{{ route('admin-books-showlist') }}"><button type="button" class="btn btn-outline-success btn-sm">Список книг</button></a>
+                            <a href="{{ route('admin-books-showlist', $el->id) }}"><button type="button" class="btn btn-outline-success btn-sm">Список книг</button></a>
                         </div>
                     </div>
 
                     <div class="row mt-2">
                         <div class="col text-center">
-                            <a href="/adminpanel/books"><button type="button" class="btn btn-outline-primary btn-sm">Изменить</button></a>
+                            <a href="{{ route('author-update', $el->id) }}"><button type="button" class="btn btn-outline-primary btn-sm">Изменить</button></a>
                         </div>
                     </div>
 
                     <div class="row mt-2">
                         <div class="col text-center">
-                            <a href="/adminpanel/books"><button type="button" class="btn btn-outline-danger btn-sm">Удалить</button></a>
+                            <a href="{{ route('author-delete', $el->id) }}"><button type="button" class="btn btn-outline-danger btn-sm">Удалить</button></a>
                         </div>
                    </div>
                 </div>

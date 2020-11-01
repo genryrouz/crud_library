@@ -1,5 +1,5 @@
 @extends('adminpanel')
-@section('title-page')Добавить книгу@endsection
+@section('title-page')Изменение книги@endsection
 @section('shadow_active')
 <li class="nav-item shadow-sm nav-menu">
     <a class="nav-link text-center" href="{{ route('admin-panel') }}">Главная</a>
@@ -26,18 +26,18 @@
 
 <div class="row">
     <div class="col">
-        <form action = "{{ route('admin-book-submit') }}" method = "post">
+        <form action = "{{ route('books-update-submit', $data->id) }}" method = "post">
             @csrf
             <div class="form-group">
                 <div class="input-group input-group-sm mb-3">
                 <label for="name">Наименование книги</label>
-                    <input type="text" name = "name" id="name" class="form-control ml-2" placeholder = "Введите название книги" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                    <input type="text" name = "name" id="name" value = '{{$data->name}}' class="form-control ml-2" placeholder = "Введите название книги" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
                 </div>
 
                 <div class="input-group input-group-sm mb-3">
                     <label for="name">Автор</label>
                     <select name = "author_id" id = "author" class="form-control input-sm ml-1">
-                    @foreach($data as $el)
+                    @foreach($author as $el)
                         <option value = "{{$el->id}}"> {{$el->surname }} {{$el->author_name}} </option>
                     
                     @endforeach
@@ -46,32 +46,32 @@
 
                 <div class="input-group input-group-sm mb-3">
                 <label for="pages_count">Количество страниц</label>
-                    <input type="number" name = "pages_count" id="pages_count" class="form-control ml-2" placeholder = "Введите количество страниц книги" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                    <input type="number" name = "pages_count" id="pages_count" value = "{{$data->pages_count}}" class="form-control ml-2" placeholder = "Введите количество страниц книги" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
                 </div>
 
                 <div class="input-group input-group-sm mb-3">
                 <label for="charter_count">Количество глав</label>
-                    <input type="number" name = "charter_count" id = "charter_count" class="form-control ml-2" placeholder = "Введите количество страниц книги" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                    <input type="number" name = "charter_count" id = "charter_count" value = "{{$data->charter_count}}" class="form-control ml-2" placeholder = "Введите количество страниц книги" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
                 </div>
 
                 <div class="input-group input-group-sm mb-3">
                 <label for="publish_date">Год издания</label>
-                    <input type="text" name = "publish_date" id = "publish_date" class="form-control ml-2" placeholder = "Введите год издания книги" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                    <input type="text" name = "publish_date" id = "publish_date" value = "{{$data->publish_date}}" class="form-control ml-2" placeholder = "Введите год издания книги" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
                 </div>
 
                 <div class="input-group input-group-sm mb-3">
                 <label for="city_publish_date">Город издания</label>
-                    <input type="text" name = "city_publish_date" id = "city_publish_date" class="form-control ml-2" placeholder = "Введите город издания книги" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                    <input type="text" name = "city_publish_date" id = "city_publish_date" value = "{{$data->city_publish_date}}" class="form-control ml-2" placeholder = "Введите город издания книги" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
                 </div>
 
                 <div class="input-group input-group-sm mb-3">
                 <label for="city_publish_date">Описание книги</label>
-                    <textarea type="text" name = "dectiption_book" id = "dectiption_book" class="form-control ml-2" placeholder = "Введите описание книги" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm"></textarea>
+                    <textarea type="text" name = "dectiption_book" id = "dectiption_book"  class="form-control ml-2" placeholder = "Введите описание книги" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">{{$data->dectiption_book}}</textarea>
                 </div>
 
                 <div class="row">
                     <div class="col text-center">
-                        <a href="/adminpanel/books"><button type="submit" class="btn btn-outline-success btn-sm">Добавить</button></a>
+                        <a href="{{route('books-update-submit', $el->id)}}"><button type="submit" class="btn btn-outline-success btn-sm">Обновить</button></a>
                     </div>
 
                     <div class="col text-center">
