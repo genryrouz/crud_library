@@ -17,13 +17,13 @@ Route::get('/', function () {
     return view('home');
 })->name('home');
 
-Route::get('/authors', function () {
-    return view('authors');
-})->name('authors');
+Route::get('/authors',
+ 'AuthorController@ShowAuthorsHome')
+ ->name('authors'); 
 
-Route::get('/books', function () {
-    return view('books');
-})->name('books');
+ Route::get('/books',
+ 'BooksController@ShowBooksHome')
+ ->name('books'); 
 
 Route::get('/adminpanel/home', function () {
     return view('admin_home');

@@ -4,12 +4,15 @@
    
 @section('content')
 
+
+
     <div class="row">
         <div class="col">
             <h1 class = "text-center">Список авторов</h1>
         </div>
     </div>
 
+@foreach($data as $el)
     <div class="row mt-5">
         <div class="col">
         <div class="card">
@@ -27,9 +30,9 @@
 
                        <div class="row">
                            <div class="col">
-                                <h5 class="card-title text-center mt-2">Имя Фамилия</h5>
+                                <h5 class="card-title text-center mt-2">{{$el->surname}} {{$el->author_name}}</h5>
                                 <div class="card-footer text-center">
-                                    <small class="text-muted">author@library.ru</small>
+                                    <small class="text-muted">{{$el->email}}</small>
                                 </div>
                            </div>
                        </div>
@@ -37,15 +40,26 @@
 
                     <div class="col-7">
                         <div class="card" style="width: 35rem;">
-                            <div class="card-header">
-                                <span class="badge badge-secondary badge-pill">3</span>   
+                       
+                            <div class="card-header"> 
+                                <span class="badge badge-secondary badge-pill">{{$el->books_count}}</span>   
                                 Список книг
                             </div>
+
+                    @if (!$el->books->isEmpty())
                             <ul class="list-group list-group-flush">
-                                <li class="list-group-item">"Красноярское утро"</li>
-                                <li class="list-group-item">"Добро и зло"</li>
-                                <li class="list-group-item">"Рога и копыта"</li>
-                            </ul>
+                            @foreach ($el->books as $book)
+                                <li class="list-group-item"> "{{ $book->name }}"</li>
+                            @endforeach  
+                            </ul>  
+                    
+                    @else
+                            <ul   ul class="list-group list-group-flush">
+                                <li class="list-group-item"> Книги  отсутствуют</li>
+                            </ul>  
+
+                    @endif
+                            
                         </div>
                     </div>
 
@@ -60,6 +74,6 @@
             </div>
         </div>
     </div>
-
+@endforeach
   
 @endsection    

@@ -36,7 +36,7 @@
 
                 <div class="input-group input-group-sm mb-3">
                     <label for="name">Автор</label>
-                    <select name = "author_id" id = "author" class="form-control input-sm ml-1">
+                    <select name = "authors_id" id = "author" class="form-control input-sm ml-1">
                     @foreach($author as $el)
                         <option value = "{{$el->id}}"> {{$el->surname }} {{$el->author_name}} </option>
                     

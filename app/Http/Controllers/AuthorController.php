@@ -7,6 +7,8 @@ use App\Http\Requests\AuthorRequest;
 use App\Models\Author;
 use App\Models\Books;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Response;
+
 
 
 class AuthorController extends Controller {
@@ -29,7 +31,6 @@ class AuthorController extends Controller {
 
     public function deleteAuthor($id) {
         Author::find($id)->delete();
-
         return redirect()->route('admin-author-data')->with('success', 'Автор был удален.');
     }
 
@@ -47,8 +48,17 @@ class AuthorController extends Controller {
 
 
     public function AllAuthors() {
-        $au
-        return view('admin_authors', ['data' => Author::all()]);
+        $authors = Author::with('books')->withCount('books')->get();
+        return view('admin_authors', ['data' => $authors]);
+       
+    }
+
+    public function ShowAuthorsHome() {
+        $authors = Author::with('books')->withCount('books')->get();
+        return view('authors', ['data' => $authors]);
+            
+
+        
     }
 
     public function AuthorList() {
@@ -57,7 +67,7 @@ class AuthorController extends Controller {
 
     public function showBooks($id){
         $author_books_list = DB::table('books')
-                                                ->where('author_id', '=', $id)
+                                                ->where('authors_id', '=', $id)
                                                 ->get();
         return view('show_books', ['data' => $author_books_list]);
     }

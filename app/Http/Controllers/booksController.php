@@ -15,7 +15,7 @@ class BooksController extends Controller {
        
         $book = new Books();
         $book->name = $req->input('name');
-        $book->author_id = $req->input('author_id');
+        $book->authors_id = $req->input('authors_id');
         $book->pages_count = $req->input('pages_count');
         $book->charter_count = $req->input('charter_count');
         $book->publish_date = $req->input('publish_date');
@@ -31,8 +31,14 @@ class BooksController extends Controller {
 
     public function AllBooks() {
 
-        $author_book = DB::select('Select * from authors, books where authors.id = books.author_id', [1]);
+        $author_book = DB::select('Select * from authors, books where authors.id = books.authors_id', [1]);
         return view('admin_books', ['data' => $author_book]);
+    }
+
+    public function ShowBooksHome() {
+
+        $author_book = DB::select('Select * from authors, books where authors.id = books.authors_id', [1]);
+        return view('books', ['data' => $author_book]);
     }
 
     public function updateBook($id){
@@ -44,7 +50,7 @@ class BooksController extends Controller {
        
         $book = Books::find($id);
         $book->name = $req->input('name');
-        $book->author_id = $req->input('author_id');
+        $book->authors_id = $req->input('authors_id');
         $book->pages_count = $req->input('pages_count');
         $book->charter_count = $req->input('charter_count');
         $book->publish_date = $req->input('publish_date');
@@ -63,5 +69,30 @@ class BooksController extends Controller {
 
         return redirect()->route('admin-books')->with('success', 'Книга была удалена.');
     }
+
+    public function showlistbook() {
+        $authors = Books::with('authors')->withCount('authors')->get();
+        return  json_encode($authors, JSON_UNESCAPED_UNICODE);
+    }
+
+    public function showBookSelectID($id) {
+        return Books::find($id);
+    }
+
+    public function updateSelectBook($id, BookRequest $req) {
+        $book = Books::find($id);
+        $book->update($req->all());
+
+        return $book;
+    }
+
+    public function deleteSelectBook($id) {
+        $book = Books::find($id);
+        $book->delete();
+
+        return 204;
+    }
+
+
    
 }

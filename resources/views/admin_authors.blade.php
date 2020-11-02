@@ -39,7 +39,7 @@
                 <div class="card-body">
                     <h5 class="card-title text-center"><i class="em em-man-raising-hand" aria-role="presentation" aria-label=""></i> {{$el->surname}} {{$el->author_name}} </h5>
                     <div class="card-footer text-center mt-2">
-                        <small class="text-muted">количество написанных книг: 0</small>
+                        <small class="text-muted">количество написанных книг: {{$el->books_count}}</small>
                     </div>
                     <div class="card-footer text-center mt-2">
                         <small class="text-muted">Email: {{$el->email}}</small>

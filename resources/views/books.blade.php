@@ -11,6 +11,7 @@
         </div>
     </div>
 
+ @foreach($data as $el)
     <div class="row mt-5">
         <div class="col">
         <div class="card">
@@ -28,9 +29,9 @@
 
                        <div class="row">
                            <div class="col">
-                                <h5 class="card-title text-center mt-2">Наименование книги</h5>
+                                <h5 class="card-title text-center mt-2">{{ $el->name }}</h5>
                                 <div class="card-footer text-center">
-                                    <small class="text-muted">автор: Фамилия Имя</small>
+                                    <small class="text-muted">автор: {{$el->surname}} {{$el->author_name}}</small>
                                 </div> 
                            </div>
                        </div>
@@ -42,9 +43,9 @@
                                 Характеристика книги
                             </div>
                             <ul class="list-group list-group-flush">
-                                <li class="list-group-item">Количество страниц: 300</li>
-                                <li class="list-group-item">Количество глав: 15</li>
-                                <li class="list-group-item">Город: Москва</li>
+                                <li class="list-group-item">Количество страниц: {{$el->pages_count}}</li>
+                                <li class="list-group-item">Количество глав: {{$el->charter_count}}</li>
+                                <li class="list-group-item">Город: {{$el->city_publish_date}}</li>
                             </ul>
                         </div>
                     </div>
@@ -60,6 +61,6 @@
             </div>
         </div>
     </div>
-
+@endforeach
 
 @endsection    
